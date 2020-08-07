@@ -10,13 +10,18 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "db:setup": "node database/seed.js"
+    "db:setup": "node database/seed.js",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "express": "^4.17.1",
+    "jest": "^26.2.2",
     "jquery": "^3.5.1",
     "mongoose": "^5.9.27",
+    "n": "^6.7.0",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -27,6 +32,7 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "semver": "^7.3.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
