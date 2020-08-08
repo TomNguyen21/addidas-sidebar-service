@@ -21,6 +21,20 @@ const productSchema = new mongoose.Schema({
 
 const Shoes = mongoose.model('Shoes', productSchema);
 
+
+let getAll = (callback) => {
+  Shoes.find((error, results) => {
+    if(error) {
+      console.log('cannot get data from database')
+    } else {
+      callback(null,results)
+    }
+  });
+}
+
 module.exports.db = db;
 module.exports.Shoes = Shoes;
+module.exports.getAll = getAll;
+
+
 
