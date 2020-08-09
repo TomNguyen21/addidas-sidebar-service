@@ -2,6 +2,7 @@ import React from 'react';
 import CategoryReview from './CategoryReview.jsx';
 import styled from 'styled-components';
 
+
 const Body = styled.div`
   // display: flex;
   background-color: #F4EBF4;

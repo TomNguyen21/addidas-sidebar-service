@@ -1,5 +1,5 @@
 import React from 'react';
-import Styled from 'styled-components';
+import styled from 'styled-components';
 
 const PriceClass = styled.div`
   font-weight: 700;
@@ -16,7 +16,6 @@ const Price = () => (
     <PriceClass>$85</PriceClass>
     <OptionClass>or pay over time in interest-free installments with Affirm or Klarna.</OptionClass>
   </div>
-
 )
 
 export default Price;
