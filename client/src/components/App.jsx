@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import CategoryReview from './CategoryReview.jsx';
 import styled from 'styled-components';
 
@@ -20,7 +20,7 @@ class App extends React.Component {
       </Body>
     )
   }
-}
+};
 
 
 export default App;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Stars from './Stars.jsx'
-import Title from './Title.jsx'
+import Stars from './Stars.jsx';
+import Title from './Title.jsx';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const Review = styled.div`
   align-item: center;
   // flex: 1;
   // flex-flow: row norwrap;
-  font-family: AdihausDIN,Helvetica,Arial,sans-serif;;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-weight: 700;
   // position: center;
   // text-transform: uppercase;
@@ -51,7 +51,7 @@ const CategoryReview = () => (
     <Title />
 
   </div>
-)
+);
 
 
-export default CategoryReview
+export default CategoryReview;

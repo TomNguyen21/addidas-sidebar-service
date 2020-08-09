@@ -20,7 +20,7 @@ const Star_rating___3tUz2 = styled.div`
 const Gl_star_rating__mask = styled.div`
   overflow: hidden;
   position: absolute;
-  width:"65.20000000000002%"
+  width:"65.20000000000002%";
 `;
 
 const Gl_star_rating__star = styled.svg`
