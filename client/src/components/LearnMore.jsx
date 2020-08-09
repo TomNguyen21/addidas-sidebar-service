@@ -13,6 +13,7 @@ const LearnMoreButton = styled.button`
 `;
 
 const LearnMoreDiv = styled.div`
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   background-color: transparent;
   color: #000;
   cursor: pointer;
