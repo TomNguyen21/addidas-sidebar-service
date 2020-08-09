@@ -9,6 +9,7 @@ import App from '../client/src/components/App';
 Enzyme.configure({ adapter: new Adapter() });
 
 
+
 describe('App', () => {
   const wrapper = shallow(<App />);
   it('should show the text', () => {

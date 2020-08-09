@@ -1,4 +1,12 @@
 import React from 'react'
+import CategoryReview from './CategoryReview.jsx';
+import styled from 'styled-components';
+
+const Body = styled.div`
+  // display: flex;
+  background-color: #F4EBF4;
+  padding: 20px;
+`;
 
 class App extends React.Component {
   constructor() {
@@ -7,9 +15,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>Hello World!</p>
-      </div>
+      <Body>
+        <CategoryReview />
+      </Body>
     )
   }
 }
