@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Stars from './Stars.jsx';
 import Title from './Title.jsx';
+import Price from './Price.jsx';
+import LearnMore from './LearnMore.jsx';
 
 const Wrapper = styled.div`
   display: flex;
@@ -49,7 +51,10 @@ const CategoryReview = () => (
     </Wrapper>
     <br></br>
     <Title />
-
+    <br></br>
+    <Price />
+    <br></br>
+    <LearnMore />
   </div>
 );
 
