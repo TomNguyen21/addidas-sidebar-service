@@ -29,6 +29,6 @@ const Title = () => (
   <br></br>
   <Color>Cloud White / Core Black / Cloud White</Color>
   </div>
-)
+);
 
 export default Title;
