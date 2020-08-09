@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Stars from './Stars.jsx';
-import Title from './Title.jsx';
-import Price from './Price.jsx';
-import LearnMore from './LearnMore.jsx';
+
 
 const ReviewButton = styled.button`
   background: none;
@@ -67,12 +65,6 @@ const CategoryReview = () => (
           </Review>
         </ReviewButton>
       </Wrapper>
-    <br></br>
-    <Title />
-    <br></br>
-    <Price />
-    <br></br>
-    <LearnMore />
   </div>
 );
 
