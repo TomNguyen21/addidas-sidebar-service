@@ -5,13 +5,22 @@ import Title from './Title.jsx';
 import Price from './Price.jsx';
 import LearnMore from './LearnMore.jsx';
 import Discount from './Discount.jsx';
+import SizeSelection from './SizeSelection.jsx'
 
 
 const Body = styled.div`
-  // display: flex;
-  background-color: #F4EBF4;
+  display: flex;
+
+`;
+
+const MainBody = styled.div`
+  flex: 2;
+`;
+const SideBar = styled.div`
+  flex: 1;
   padding: 20px;
 `;
+
 
 class App extends React.Component {
   constructor() {
@@ -21,15 +30,20 @@ class App extends React.Component {
   render() {
     return (
       <Body>
-        <CategoryReview />
-        <br></br>
-        <Title />
-        <br></br>
-        <Price />
-        <br></br>
-        <LearnMore />
-        <br></br>
-        <Discount />
+        <MainBody></MainBody>
+        <SideBar>
+          <CategoryReview />
+          <br></br>
+          <Title />
+          <br></br>
+          <Price />
+          <br></br>
+          <LearnMore />
+          <br></br>
+          <Discount />
+          <br></br>
+          <SizeSelection />
+        </SideBar>
       </Body>
     )
   }
