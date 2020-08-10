@@ -8,11 +8,19 @@ import App from '../client/src/components/App';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-
-describe('App', () => {
-  const wrapper = shallow(<App />);
-  it('should show the text', () => {
-    const text = wrapper.find('div p');
-    expect(text.text()).toBe('Hello World!');
+describe('App',  () => {
+  it('should render correctly in "debug" mode', () => {
+    const component = shallow(<App debug />);
+    expect(component).toMatchSnapshot();
   });
 });
+
+
+
+// describe('App', () => {
+//   const wrapper = shallow(<App />);
+//   it('should show the text', () => {
+//     const text = wrapper.find('div');
+//     expect(text.text()).toBe('WOMEN');
+//   });
+// });
