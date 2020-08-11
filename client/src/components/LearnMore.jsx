@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LearnMoreModal from './LearnMoreModal.jsx';
 
 const LearnMoreButton = styled.button`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
@@ -17,20 +18,20 @@ const LearnMoreButton = styled.button`
   }
     `;
 
-  class LearnMore extends React.Component {
-    constructor(props) {
-      super(props);
-      this.handleClick = this.handleClick.bind(this);
+  const LearnMore = (props) => {
+
+    const modalRef = React.useRef();
+
+    const handleIsOpen = () => {
+      modalRef.current.handleIsOpen()
     }
 
-    handleClick() {
-      this.props.Func();
-    }
-    render() {
-      return(
-        <LearnMoreButton onClick={this.handleClick}>Learn more</LearnMoreButton>
-      )
-    }
+    return(
+      <div>
+        <LearnMoreButton  onClick={handleIsOpen}>Learn more</LearnMoreButton>
+        <LearnMoreModal ref={modalRef}/>
+      </div>
+    )
   }
 
 

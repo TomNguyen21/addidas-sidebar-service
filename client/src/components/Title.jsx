@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ProductName = styled.div`
+const ProductName = styled.h1`
   display: block;
   font-family: AdihausDIN Cn,Helvetica,Arial,sans-serif;
   font-style: italic;
-  font-weight: 500;
-  font-size: 44px;
-  line-height: 38px;
+  font-weight: 512;
+  font-size: 32px;
+  line-height: 44px;
+  // letter-spacing: 1.5px;
+  margin-bottom: 20px;
   text-transform: uppercase;
+  box-sizing: border-box;
 `;
 
 const Color= styled.div`
@@ -25,9 +28,8 @@ const Color= styled.div`
 
 const Title = () => (
   <div>
-  <ProductName> SuperStar shoes</ProductName>
-  <br></br>
-  <Color>Cloud White / Core Black / Cloud White</Color>
+    <ProductName> SuperStar shoes</ProductName>
+    <Color>Cloud White / Core Black / Cloud White</Color>
   </div>
 );
 

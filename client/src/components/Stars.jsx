@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Gl_star_rating__item = styled.div`
   position: relative;
 `;

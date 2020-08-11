@@ -11,6 +11,8 @@ const ReviewButton = styled.button`
 
 const Wrapper = styled.div`
   display: flex;
+  font-size: 11px;
+  line-height: 15px;
   flex-flow: row norwrap;
   justify-content: space-between;
   text-align: center;
@@ -20,7 +22,7 @@ const Category = styled.div`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  // letter-spacing: 2px;
+  letter-spacing: 2px;
 `;
 
 const Review = styled.div`
@@ -45,7 +47,7 @@ const CategoryReview = () => (
   <div>
       <Wrapper>
         <Category>
-          women . original
+          women's . original
         </Category>
         <ReviewButton>
           <Review>

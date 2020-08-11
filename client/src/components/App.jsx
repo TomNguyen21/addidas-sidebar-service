@@ -7,67 +7,60 @@ import LearnMore from './LearnMore.jsx';
 import Discount from './Discount.jsx';
 import SizeSelection from './SizeSelection.jsx';
 import SizeGuide from './SizeGuide.jsx';
-import LearnMoreModal from './LearnMoreModal.jsx';
+
 
 
 const Body = styled.div`
   display: flex;
-
+  // padding-left: 30px;
+  // padding-right: 30px;
+  padding: 30px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-left: 1px solid #ebedee;
 `;
 
 const MainBody = styled.div`
-  flex: 2;
+  flex: 3;
 `;
 const SideBar = styled.div`
   flex: 1;
-  padding: 20px;
+  padding-left: 30px;
 `;
 
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isOpen: false
-    }
-    this.handleIsOpen = this.handleIsOpen.bind(this)
-  }
 
-  handleIsOpen() {
-    console.log('Clicked!')
-    this.setState({
-      isOpen : !this.state.isOpen
-    })
-  }
+const App = () => {
+  const [isOpen, setisOpen] = React.useState(false);
 
-  render() {
-    if (this.state.isOpen) {
-      return (
-        <LearnMoreModal />
-      )
-    } else {
-      return (
-        <Body>
-          <MainBody></MainBody>
-          <SideBar>
-            <CategoryReview />
-            <br></br>
-            <Title />
-            <br></br>
-            <Price />
-            <br></br>
-            <LearnMore Func={this.handleIsOpen}/>
-            <br></br>
-            <Discount />
-            <br></br>
-            <SizeSelection />
-            <br></br>
-            <SizeGuide />
-          </SideBar>
-        </Body>
-      )
-    }
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     isOpen: false
+  //   }
+  //   this.handleIsOpen = this.handleIsOpen.bind(this)
+  // }
+
+  return (
+    <Body>
+      <MainBody></MainBody>
+      <SideBar>
+        <CategoryReview />
+        <Title />
+        <br></br>
+        <Price />
+        <br></br>
+        <LearnMore />
+        <br></br>
+        <Discount />
+        <br></br>
+        <SizeSelection />
+        <br></br>
+        <SizeGuide />
+      </SideBar>
+    </Body>
+  )
 };
 
 
