@@ -7,13 +7,6 @@ const ReviewButton = styled.button`
   background: none;
   border: none;
   padding: 0;
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  text-align: inherit;
-  text-transform: inherit;
-
 `;
 
 const Wrapper = styled.div`
@@ -31,14 +24,14 @@ const Category = styled.div`
 `;
 
 const Review = styled.div`
-  display: inline-flex;
   align-item: center;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-line: underline;
-  background-color: transparent;
-  cursor: pointer;
   // letter-spacing: 2px;
   ${ReviewButton}:hover & {
     background-color: #000;

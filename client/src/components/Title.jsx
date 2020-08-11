@@ -12,8 +12,8 @@ const ProductName = styled.div`
 `;
 
 const Color= styled.div`
-  display: block;
   color: #000;
+  display: block;
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-size: 12px;
   font-weight: 400;

@@ -5,7 +5,9 @@ import Title from './Title.jsx';
 import Price from './Price.jsx';
 import LearnMore from './LearnMore.jsx';
 import Discount from './Discount.jsx';
-import SizeSelection from './SizeSelection.jsx'
+import SizeSelection from './SizeSelection.jsx';
+import SizeGuide from './SizeGuide.jsx';
+import LearnMoreModal from './LearnMoreModal.jsx';
 
 
 const Body = styled.div`
@@ -25,27 +27,46 @@ const SideBar = styled.div`
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      isOpen: false
+    }
+    this.handleIsOpen = this.handleIsOpen.bind(this)
+  }
+
+  handleIsOpen() {
+    console.log('Clicked!')
+    this.setState({
+      isOpen : !this.state.isOpen
+    })
   }
 
   render() {
-    return (
-      <Body>
-        <MainBody></MainBody>
-        <SideBar>
-          <CategoryReview />
-          <br></br>
-          <Title />
-          <br></br>
-          <Price />
-          <br></br>
-          <LearnMore />
-          <br></br>
-          <Discount />
-          <br></br>
-          <SizeSelection />
-        </SideBar>
-      </Body>
-    )
+    if (this.state.isOpen) {
+      return (
+        <LearnMoreModal />
+      )
+    } else {
+      return (
+        <Body>
+          <MainBody></MainBody>
+          <SideBar>
+            <CategoryReview />
+            <br></br>
+            <Title />
+            <br></br>
+            <Price />
+            <br></br>
+            <LearnMore Func={this.handleIsOpen}/>
+            <br></br>
+            <Discount />
+            <br></br>
+            <SizeSelection />
+            <br></br>
+            <SizeGuide />
+          </SideBar>
+        </Body>
+      )
+    }
   }
 };
 

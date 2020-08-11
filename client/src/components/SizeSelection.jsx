@@ -46,14 +46,14 @@ const Sizes = styled.button`
   font-size: 13px;
   font-weight: 400;
   height: 40px;
-  // margin-bottom: -1px;
   justify-content: center;
   line-height: 1em;
   letter-spacing: -.2px;
   text-align: center;
   text-transform: uppercase;
-  &:*,before,after {
-    box-sizing: border-box;
+  &:hover {
+    background-color: #000;
+    color: #fff;
   }
   touch-action: manipulation;
 `;

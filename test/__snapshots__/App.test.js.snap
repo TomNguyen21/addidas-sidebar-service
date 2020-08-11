@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should render correctly in "debug" mode 1`] = `ShallowWrapper {}`;
+
+exports[`Categoryreview should render correctley with no props 1`] = `ShallowWrapper {}`;
+
+exports[`LearnMore Learn component should render correctley with no props 1`] = `ShallowWrapper {}`;
+
+exports[`LearnMore should render correctley with no props 1`] = `ShallowWrapper {}`;
