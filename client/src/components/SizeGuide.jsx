@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SizeGuideModal from './SizeGuideModal.jsx'
 
 
 const SizeGuideButton = styled.button`
@@ -39,16 +40,28 @@ const GTag = styled.g`
   stroke: currentColor;
 `;
 
-const SizeGuide = () => (
-  <SizeGuideButton>
-    <Measurement viewBox="0 0 19 19">
-      <GTag>
-        <path d= "M.5 6.5h18v6H.5z" ></path>
-        <path strokeLinecap="square" d="M3.5 12.5v-3m3 3v-2m3 2v-3m6 3v-3m-3 3v-2"></path>
-      </GTag>
-    </Measurement>
-    Size Guide
-  </SizeGuideButton>
-)
+const SizeGuide = (props) => {
+
+  const sizeModalRef = React.useRef();
+
+  const handleIsOpen = () => {
+    sizeModalRef.current.open()
+  }
+
+  return (
+    <div>
+      <SizeGuideButton onClick={handleIsOpen}>
+        <Measurement viewBox="0 0 19 19">
+          <GTag>
+            <path d= "M.5 6.5h18v6H.5z" ></path>
+            <path strokeLinecap="square" d="M3.5 12.5v-3m3 3v-2m3 2v-3m6 3v-3m-3 3v-2"></path>
+          </GTag>
+        </Measurement>
+        Size Guide
+      </SizeGuideButton>
+      <SizeGuideModal ref={sizeModalRef}/>
+    </div>
+  )
+}
 
 export default SizeGuide;

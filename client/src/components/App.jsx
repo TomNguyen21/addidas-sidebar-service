@@ -7,15 +7,15 @@ import LearnMore from './LearnMore.jsx';
 import Discount from './Discount.jsx';
 import SizeSelection from './SizeSelection.jsx';
 import SizeGuide from './SizeGuide.jsx';
+import AddToBag from './AddToBag.jsx';
 
 
 
 const Body = styled.div`
   display: flex;
-  // padding-left: 30px;
-  // padding-right: 30px;
-  padding: 30px;
-  position: relative;
+  position: sticky;
+  background: #fff;
+  padding: 30px 40px;
   overflow-x: hidden;
   overflow-y: scroll;
   border-left: 1px solid #ebedee;
@@ -34,14 +34,6 @@ const SideBar = styled.div`
 const App = () => {
   const [isOpen, setisOpen] = React.useState(false);
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     isOpen: false
-  //   }
-  //   this.handleIsOpen = this.handleIsOpen.bind(this)
-  // }
-
   return (
     <Body>
       <MainBody></MainBody>
@@ -58,6 +50,7 @@ const App = () => {
         <SizeSelection />
         <br></br>
         <SizeGuide />
+        <AddToBag />
       </SideBar>
     </Body>
   )

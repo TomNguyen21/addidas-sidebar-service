@@ -23,7 +23,7 @@ const LearnMoreButton = styled.button`
     const modalRef = React.useRef();
 
     const handleIsOpen = () => {
-      modalRef.current.handleIsOpen()
+      modalRef.current.open()
     }
 
     return(
@@ -37,13 +37,6 @@ const LearnMoreButton = styled.button`
 
   LearnMoreButton.displayName = 'LearnMoreButton';
   export default LearnMore;
-
-
-
-
-
-
-
 
 
 // const LearnMoreButton = styled.button`

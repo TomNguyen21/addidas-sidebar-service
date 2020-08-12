@@ -1,14 +1,15 @@
 import React, {forwardRef, useImperativeHandle} from 'react';
 import styled from 'styled-components';
+import SizeModalContent from './SizeModalContent.jsx';
 
 const Body = styled.div`
   box-sizing: border-box;
-  flex-shrink: 3;
   display: flex;
   margin: 0;
   max-height: 92vh;
   padding: 0;
   visibility: visible;
+  overflow-y: auto;
 `;
 
 const Wrapper = styled.div`
@@ -36,14 +37,11 @@ const Box = styled.div`
   background-color: #fff;
   border-right: 1px solid #000;
   border-top: 1px solid #000;
-  height: 22%;
+  height: 80%;
   left: 50%;
   position: relative;
   overflow-y: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right:20px;
+  padding:20px;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 45%;
@@ -55,22 +53,10 @@ const Title = styled.h5`
   font-size: 26px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px;
   margin-top: 1px;
   margin-bottom: 18px;
   padding-right: 15px;
   text-transform: uppercase;
-`;
-
-const Text = styled.div`
-  color: rgba(0,0,0,0.7);
-  font-size: 14px;
-  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  white-space: pre-line;
 `;
 
 const CloseButton = styled.button`
@@ -81,14 +67,15 @@ const CloseButton = styled.button`
   font-size: 25px;
   height: 40px;
   position: absolute;
-  right: 25%;
+  right: 24.5%;
   text-align: center;
-  top: 35%;
+  top: 4.5%;
   width: 40px;
 `;
 
 
-const LearnMoreModal = forwardRef((props, ref) => {
+
+const SizeGuideModal = forwardRef((props, ref) => {
   const [display, setDisplay] = React.useState(false);
 
   useImperativeHandle(ref, () => {
@@ -108,20 +95,18 @@ const LearnMoreModal = forwardRef((props, ref) => {
 
   if (display) {
     return(
-      <Body>
-        <Wrapper>
-          <BackDrop onClick={handleClose}>
-            <Box>
-              <Title>Paying in installments</Title>
-              <Text>Want to spread out the cost of your order with adidas? Select ‘Affirm’ or ‘Klarna‘ as your payment method at checkout, and you can pay in interest-free installments, with no hidden fees. Following a quick eligibility check, you’re all set!
-              You will be redirected to Affirm's or Klarna´s website.​ </Text><br></br>
-
-              <Text>Affirm payments are subject to eligibility check and approval. Estimated payment amount excludes taxes and shipping fees. Affirm Payment options are provided by Cross River Bank, Member FDIC.​</Text>
-            </Box>
-          </BackDrop>
-        </Wrapper>
+      <div>
+        <Body>
+          <Wrapper>
+            <BackDrop >
+              <Box>
+              <SizeModalContent />
+              </Box>
+            </BackDrop>
+          </Wrapper>
+        </Body>
         <CloseButton onClick={handleClose}>&Chi;</CloseButton>
-      </Body>
+      </div>
     )
   }
   return null
@@ -129,4 +114,4 @@ const LearnMoreModal = forwardRef((props, ref) => {
 
 
 
-export default LearnMoreModal;
+export default SizeGuideModal;
