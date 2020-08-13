@@ -98,7 +98,7 @@ const SizeGuideModal = forwardRef((props, ref) => {
       <div>
         <Body>
           <Wrapper>
-            <BackDrop >
+            <BackDrop>
               <Box>
               <SizeModalContent />
               </Box>

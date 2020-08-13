@@ -18,7 +18,7 @@ const SizeGuideButton = styled.button`
   padding-left: 24px;
   vertical-align: bottom;
   line-height: 15px;
-  text-decoration-line: underline;
+  text-decoration: underline;
   text-transform: uppercase;
   &:hover {
     background-color: #000;

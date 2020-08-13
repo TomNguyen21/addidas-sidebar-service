@@ -36,15 +36,12 @@ const TableCell = styled.div`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-style: normal;
   font-weight: 700;
-  // flex: 1 1 130px;
-  // justify-content: stretch;
   left: 0;
   min-height: 50px;
   position: sticky;
   padding: 10px;
-  // text-align: center;
   width: 130px;
-  z-index: 1;
+  // z-index: 1;
 `;
 
 const TableCell2 = styled.div`
@@ -57,15 +54,12 @@ const TableCell2 = styled.div`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-style: normal;
   font-weight: 700;
-  flex: 1 1 130px;
-  justify-content: stretch;
   line-height: 15px;
   left: 0;
   min-height: 50px;
   position: sticky;
   padding: 10px;
   width: 130px;
-  z-index: 1;
 `;
 
 const SizeTable = () => {

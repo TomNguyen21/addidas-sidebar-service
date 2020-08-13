@@ -27,13 +27,11 @@ const Category = styled.div`
 
 const Review = styled.div`
   align-item: center;
-  background-color: transparent;
   cursor: pointer;
   display: inline-flex;
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-line: underline;
   // letter-spacing: 2px;
   ${ReviewButton}:hover & {
     background-color: #000;

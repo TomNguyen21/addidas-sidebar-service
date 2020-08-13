@@ -3,12 +3,10 @@ import styled from 'styled-components';
 
 const Body = styled.div`
   box-sizing: border-box;
-  flex-shrink: 3;
   display: flex;
   margin: 0;
   max-height: 92vh;
   padding: 0;
-  visibility: visible;
 `;
 
 const Wrapper = styled.div`
@@ -26,7 +24,7 @@ const BackDrop = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 100;
+  z-index: 0;
 `;
 
 const Box = styled.div`
@@ -47,7 +45,7 @@ const Box = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 45%;
-  z-index: 101;
+  z-index: 1;
 `;
 
 const Title = styled.h5`
@@ -68,8 +66,6 @@ const Text = styled.div`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-style: normal;
   font-weight: 400;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
   white-space: pre-line;
 `;
 
@@ -81,9 +77,9 @@ const CloseButton = styled.button`
   font-size: 25px;
   height: 40px;
   position: absolute;
-  right: 25%;
+  right: 24.5%;
   text-align: center;
-  top: 35%;
+  top: 34.5%;
   width: 40px;
 `;
 

@@ -35,9 +35,7 @@ const Sizes = styled.button`
   align-items: center;
   background-color: #FFF;
   border: 1px solid #ebedee;
-  border-left-width: 1px;
-  border-left-style: solid;
-  border-left-color: rgb(235, 237, 238);
+  border-left-width: 1px solid rgb(235, 237, 238);
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
