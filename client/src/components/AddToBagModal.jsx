@@ -1,6 +1,7 @@
-import React, {forwardRef, useImperativeHandle} from 'react';
+import React, {useState, forwardRef, useImperativeHandle} from 'react';
 import styled from 'styled-components';
-import SizeModalContent from './SizeModalContent.jsx';
+import BagThumbnail from './BagThumbnail.jsx';
+
 
 const Body = styled.div`
   box-sizing: border-box;
@@ -74,8 +75,8 @@ const CloseButton = styled.button`
 
 
 
-const SizeGuideModal = forwardRef((props, ref) => {
-  const [display, setDisplay] = React.useState(false);
+const AddToBagModal = forwardRef(({product}, ref) => {
+  const [display, setDisplay] = useState(false);
 
   useImperativeHandle(ref, () => {
     return {
@@ -94,19 +95,18 @@ const SizeGuideModal = forwardRef((props, ref) => {
 
   if (display) {
     return(
-      <div>
-        <Body>
-          <Wrapper>
-            <BackDrop>
-              <Box>
-              <SizeModalContent />
+      <Body>
+        <Wrapper>
+          <BackDrop onClick={handleClose}>
+            <Box>
+              <Title>SUCCESSFULLY ADDED TO BAG!</Title>
+              <BagThumbnail product={product}/>
               <CloseButton onClick={handleClose}>&Chi;</CloseButton>
-              </Box>
-            </BackDrop>
-          </Wrapper>
-        </Body>
+            </Box>
+          </BackDrop>
+        </Wrapper>
 
-      </div>
+      </Body>
     )
   }
   return null
@@ -114,4 +114,4 @@ const SizeGuideModal = forwardRef((props, ref) => {
 
 
 
-export default SizeGuideModal;
+export default AddToBagModal;

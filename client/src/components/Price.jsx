@@ -13,9 +13,9 @@ const OptionClass = styled.span`
   margin-top: 5px;
 `;
 
-const Price = () => (
+const Price = ({productPrice}) => (
   <div>
-    <PriceClass>$85</PriceClass>
+    <PriceClass>${productPrice}</PriceClass>
     <OptionClass>or pay over time in interest-free installments with Affirm or Klarna.</OptionClass>
   </div>
 )

@@ -39,13 +39,3 @@ const LearnMoreButton = styled.button`
   export default LearnMore;
 
 
-// const LearnMoreButton = styled.button`
-//   background: none;
-//   border: none;
-//   color: inherit;
-//   font: inherit;
-//   font-style: inherit;
-//   padding: 0;
-//   text-align: inherit;
-//   text-transform: inherit;
-// `;

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import CategoryReview from './CategoryReview.jsx';
 import styled from 'styled-components';
 import Title from './Title.jsx';
@@ -8,7 +9,6 @@ import Discount from './Discount.jsx';
 import SizeSelection from './SizeSelection.jsx';
 import SizeGuide from './SizeGuide.jsx';
 import AddToBag from './AddToBag.jsx';
-
 
 
 const Body = styled.div`
@@ -31,9 +31,26 @@ const SideBar = styled.div`
 
 
 
-const App = () => {
-  const [isOpen, setisOpen] = React.useState(false);
+const App = (props) => {
+  const [isOpen, setisOpen] = useState(false);
+  const [product, setProduct] = useState([])
 
+  const getData = () => {
+    axios.get('/sidebar/summary')
+    .then(updateData)
+    .catch(console.log)
+  }
+
+  const updateData = (product) => {
+    setProduct(product.data);
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+  if(!product[0]) {
+    return null
+  }
   return (
     <Body>
       <MainBody></MainBody>
@@ -41,7 +58,7 @@ const App = () => {
         <CategoryReview />
         <Title />
         <br></br>
-        <Price />
+        <Price productPrice={product[0].price}/>
         <br></br>
         <LearnMore />
         <br></br>
@@ -50,7 +67,7 @@ const App = () => {
         <SizeSelection />
         <br></br>
         <SizeGuide />
-        <AddToBag />
+        <AddToBag product={product[0]}/>
       </SideBar>
     </Body>
   )

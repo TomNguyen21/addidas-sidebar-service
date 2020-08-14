@@ -1,61 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import AddToBagModal from './AddToBagModal.jsx';
 
 const ButtonFlex = styled.div`
   display: flex;
   margin-top: 20px;
+  z-index: 0;
+  }
 `;
 
 const AddToBagButton = styled.button`
-font-size: 13px;
-letter-spacing: 2px;
-text-transform: uppercase;
-font-family: AdihausDIN,Helvetica,Arial,sans-serif;
-font-weight: 700;
-justify-content: space-between;
-width: 100%;
-background-color: #000;
-border-color: #fff;
-color: #fff;
-height: 50px;
-align-items: center;
-border-radius: 0;
-cursor: pointer;
-display: inline-flex;
-min-height: 50px;
-padding: 0 21px;
-position: relative;
-border-bottom: 1px solid #000;
-border-left: 1px solid #000;
-bottom: -3px;
-height: 3px;
-left: 3px;
-
-&:after {
-  border-right: 1px solid #000;
-  border-top: 1px solid #000;
-  height: 100%;
-  right: -3px;
-  top: 3px;
-  width: 3px;
-  content: "";
-  display: block;
-  position: absolute;
-}
-&:before {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #000;
+  border-color: #fff;
+  color: #fff;
+  height: 50px;
+  align-items: center;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-flex;
+  min-height: 50px;
+  padding: 0 21px;
+  box-shadow: 3px 3px grey;
   border-bottom: 1px solid #000;
   border-left: 1px solid #000;
-  bottom: -3px;
-  height: 3px;
-  left: 3px;
-  width: 100%;
-  content: "";
-  display: block;
-  position: absolute;
-}
-&:hover {
-  color: gray;
-}
+  &:hover {
+    color: gray;
 `;
 
 const Icon = styled.svg`
@@ -65,8 +41,7 @@ const Icon = styled.svg`
   height: 24px;
   vertical-align: text-top;
   width: 24px;
-  // overflow: hidden;
-  color: white;
+  overflow: hidden;
   cursor: pointer;
   text-align: left;
   white-space: nowrap;
@@ -100,7 +75,7 @@ const WishList = styled.div`
   font-weight: 700;
   border-radius: 0;
   min-height: 50px;
-  position: relative;
+  // position: relative;
   text-align: left;
   text-decoration: none;
   white-space: nowrap;
@@ -140,21 +115,28 @@ const FilledHeartIcon = styled.path`
 
 `;
 
-const AddToBag = (props) => {
+const AddToBag = ({product}) => {
   const [display, setDisplay] = React.useState(false)
 
   const handleClick = () => {
     setDisplay(!display)
   }
 
+  const modalRef = React.useRef();
+
+  const handleIsOpen = () => {
+    modalRef.current.open()
+  }
+
   return(
     <ButtonFlex>
-      <AddToBagButton>
+      <AddToBagButton onClick={handleIsOpen}>
         Add to Bag
         <Icon viewBox="0 0 24 24">
             <IconPath />
         </Icon>
       </AddToBagButton>
+      <AddToBagModal ref={modalRef} product={product}/>
       <WishList>
         <WisHListToggle>
           <HeartButton viewBox=" 0 0 20 20" onClick={handleClick}>

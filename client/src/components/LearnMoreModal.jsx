@@ -2,11 +2,13 @@ import React, {forwardRef, useImperativeHandle} from 'react';
 import styled from 'styled-components';
 
 const Body = styled.div`
+  margin-left: 30px;
+  margin-right: 30px;
   box-sizing: border-box;
-  display: flex;
-  margin: 0;
-  max-height: 92vh;
-  padding: 0;
+  // display: flex;
+  // margin: 0;
+  // max-height: 92vh;
+  // padding: 0;
 `;
 
 const Wrapper = styled.div`
@@ -37,7 +39,6 @@ const Box = styled.div`
   height: 22%;
   left: 50%;
   position: relative;
-  overflow-y: auto;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -70,17 +71,21 @@ const Text = styled.div`
 `;
 
 const CloseButton = styled.button`
+  align-items: center;
   background: #fff;
   border: 1px solid #000;
   color: #000;
   cursor: pointer;
+  display: flex;
   font-size: 25px;
   height: 40px;
+  justify-content: center;
   position: absolute;
-  right: 24.5%;
+  right: -17px;
   text-align: center;
-  top: 34.5%;
+  top: -17px;
   width: 40px;
+  // z-index: 1;
 `;
 
 
@@ -105,6 +110,7 @@ const LearnMoreModal = forwardRef((props, ref) => {
   if (display) {
     return(
       <Body>
+
         <Wrapper>
           <BackDrop onClick={handleClose}>
             <Box>
@@ -113,10 +119,11 @@ const LearnMoreModal = forwardRef((props, ref) => {
               You will be redirected to Affirm's or Klarna´s website.​ </Text><br></br>
 
               <Text>Affirm payments are subject to eligibility check and approval. Estimated payment amount excludes taxes and shipping fees. Affirm Payment options are provided by Cross River Bank, Member FDIC.​</Text>
+              <CloseButton onClick={handleClose}>&Chi;</CloseButton>
             </Box>
           </BackDrop>
         </Wrapper>
-        <CloseButton onClick={handleClose}>&Chi;</CloseButton>
+
       </Body>
     )
   }
