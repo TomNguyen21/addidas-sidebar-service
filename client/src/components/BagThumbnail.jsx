@@ -80,6 +80,77 @@ const Price = styled.span`
   flex-wrap: wrap;
 `;
 
+const AddToBagButton = styled.button`
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #000;
+  border-color: #fff;
+  color: #fff;
+  height: 50px;
+  align-items: center;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-flex;
+  min-height: 50px;
+  padding: 0 21px;
+  box-shadow: 3px 3px grey;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  &:hover {
+    color: gray;
+  }
+`;
+const AddToBagButton2 = styled.button`
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  border-color: #000;
+  color: #000;
+  height: 50px;
+  align-items: center;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-flex;
+  min-height: 50px;
+  padding: 0 21px;
+  border: 1px solid #000;
+  &:hover {
+    color: gray;
+  }
+`;
+
+const Icon = styled.svg`
+  flex-shrink: 0;
+  margin-left: 20px;
+  display: inline-block;
+  height: 24px;
+  vertical-align: text-top;
+  width: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  box-sizing: border-box;
+`;
+
+const IconPath = styled.path`
+  d: path("M17.59 7l5 5-5 5M0 12h22");
+  fill: none;
+  stroke: currentColor;
+  stroke-miterlimit: 10;
+  stroke-width: 2;
+`;
+
 const BagThumbnail = ({product}) => {
   return(
     <Body>
@@ -122,6 +193,19 @@ const BagThumbnail = ({product}) => {
               <dt>Installment options</dt>
               <p>Prefer to spread out the payment? Select ‘Affirm’ or ‘Klarna’ at checkout to pay in interest-free installments.</p>
             </span>
+            <AddToBagButton>
+              View bag
+              <Icon viewBox="0 0 24 24">
+                  <IconPath />
+              </Icon>
+            </AddToBagButton>
+            <br></br>
+            <AddToBagButton2>
+              checkout
+              <Icon viewBox="0 0 24 24">
+                  <IconPath />
+              </Icon>
+            </AddToBagButton2>
         </BagSection>
       {/* </ImageSection> */}
     </Body>
