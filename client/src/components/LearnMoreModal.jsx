@@ -130,6 +130,4 @@ const LearnMoreModal = forwardRef((props, ref) => {
   return null
 })
 
-
-
 export default LearnMoreModal;

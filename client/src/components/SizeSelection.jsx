@@ -56,34 +56,26 @@ const Sizes = styled.button`
   touch-action: manipulation;
 `;
 
-const SizeSelection = (props) => {
-  const [size, setsize] = useState()
+const SizeSelection = ({postData, id}) => {
+  const [size, setSize] = useState(0)
+  const [quantity, setQuantity] = useState(0)
 
   const handleClick = (event) => {
-    console.log(event.target)
     event.preventDefault;
-    setsize(event.target.value);
-    console.log(size)
+    setSize(event.target.value);
+    setQuantity(quantity+1);
+    postData({id, size, quantity});
   }
+
+  const sizes = [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11]
   return (
     <div>
       <SelectSize>Select size</SelectSize>
       <br></br>
       <Body>
-        <SizeTable>
-          <Sizes><span>5</span></Sizes>
-          <Sizes><span>5.5</span></Sizes>
-          <Sizes><span>6</span></Sizes>
-          <Sizes><span>6.5</span></Sizes>
-          <Sizes><span>7</span></Sizes>
-          <Sizes><span>7.5</span></Sizes>
-          <Sizes><span>8</span></Sizes>
-          <Sizes><span>8.5</span></Sizes>
-          <Sizes><span>9</span></Sizes>
-          <Sizes><span>9.5</span></Sizes>
-          <Sizes><span>10</span></Sizes>
-          <Sizes><span>10.5</span></Sizes>
-          <Sizes><span>11</span></Sizes>
+        <SizeTable>{sizes.map(size =>
+            <Sizes name="size" value={size} onClick={handleClick}>{size}</Sizes>
+          )}
         </SizeTable>
       </Body>
     </div>

@@ -171,11 +171,11 @@ const BagThumbnail = ({product}) => {
       {/* <ImageSection> */}
         <BagSection>
             <H3Tag style={{fontWeight: 900, color: "#000"}}>Your Bag</H3Tag>
-            <div>7 items</div>
+            <div>{product.quantity} items</div>
             <ProductDiv>
               <div>Total Product Cost:</div>
               <BagPrice>
-                <span style={{color: "#000"}}>${product.price}</span>
+                <span style={{color: "#000"}}>${product.price * product.quantity}</span>
               </BagPrice>
             </ProductDiv>
             <ProductDiv>
@@ -188,7 +188,7 @@ const BagThumbnail = ({product}) => {
             <ProductDiv>
               <div><strong style={{fontFamily: "AdihausDIN,Helvetica,Arial,sans-serif"}}>Total:</strong></div>
               <BagPrice>
-                <span>${product.price}</span>
+                <span>${product.price * product.quantity}</span>
               </BagPrice>
             </ProductDiv>
             <span>

@@ -105,7 +105,6 @@ const AddToBagModal = forwardRef(({product}, ref) => {
             </Box>
           </BackDrop>
         </Wrapper>
-
       </Body>
     )
   }

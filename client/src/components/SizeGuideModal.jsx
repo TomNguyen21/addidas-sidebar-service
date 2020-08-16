@@ -100,7 +100,7 @@ const SizeGuideModal = forwardRef((props, ref) => {
     return(
       <div>
         <Body>
-          <BackDrop onClick={handleClose}>
+          <BackDrop>
             <Box>
               <CloseButton onClick={handleClose}>&Chi;</CloseButton>
               <ContentBox>
@@ -115,7 +115,5 @@ const SizeGuideModal = forwardRef((props, ref) => {
   }
   return null
 })
-
-
 
 export default SizeGuideModal;

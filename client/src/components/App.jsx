@@ -45,6 +45,13 @@ const App = (props) => {
     setProduct(product.data);
   }
 
+  const postData = (product) => {
+    axios.post('/sidebar/summary', product)
+    .then(getData)
+    .catch(console.log)
+
+  }
+
   useEffect(() => {
     getData()
   }, [])
@@ -64,7 +71,7 @@ const App = (props) => {
         <br></br>
         <Discount />
         <br></br>
-        <SizeSelection />
+        <SizeSelection postData={postData} id={product[0].id}/>
         <br></br>
         <SizeGuide />
         <AddToBag product={product[0]}/>
