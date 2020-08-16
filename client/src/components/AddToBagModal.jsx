@@ -112,6 +112,4 @@ const AddToBagModal = forwardRef(({product}, ref) => {
   return null
 })
 
-
-
 export default AddToBagModal;

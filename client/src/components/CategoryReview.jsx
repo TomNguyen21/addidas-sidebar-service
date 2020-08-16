@@ -41,11 +41,11 @@ const Review = styled.div`
 `;
 
 
-const CategoryReview = () => (
+const CategoryReview = ({product}) => (
   <div>
       <Wrapper>
         <Category>
-          women's . original
+          {product.category}
         </Category>
         <ReviewButton>
           <Review>
@@ -54,7 +54,7 @@ const CategoryReview = () => (
             <Stars />
             <Stars />
             <Stars />
-            7753
+            {product.numberOfReview}
           </Review>
         </ReviewButton>
       </Wrapper>

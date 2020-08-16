@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {setState, useState} from 'react';
 import styled from 'styled-components';
 
 const Body = styled.div`
@@ -56,28 +56,38 @@ const Sizes = styled.button`
   touch-action: manipulation;
 `;
 
-const SizeSelection = () => (
-  <div>
-    <SelectSize>Select size</SelectSize>
-    <br></br>
-    <Body>
-      <SizeTable>
-        <Sizes><span>5</span></Sizes>
-        <Sizes><span>5.5</span></Sizes>
-        <Sizes><span>6</span></Sizes>
-        <Sizes><span>6.5</span></Sizes>
-        <Sizes><span>7</span></Sizes>
-        <Sizes><span>7.5</span></Sizes>
-        <Sizes><span>8</span></Sizes>
-        <Sizes><span>8.5</span></Sizes>
-        <Sizes><span>9</span></Sizes>
-        <Sizes><span>9.5</span></Sizes>
-        <Sizes><span>10</span></Sizes>
-        <Sizes><span>10.5</span></Sizes>
-        <Sizes><span>11</span></Sizes>
-      </SizeTable>
-    </Body>
-  </div>
-);
+const SizeSelection = (props) => {
+  const [size, setsize] = useState()
+
+  const handleClick = (event) => {
+    console.log(event.target)
+    event.preventDefault;
+    setsize(event.target.value);
+    console.log(size)
+  }
+  return (
+    <div>
+      <SelectSize>Select size</SelectSize>
+      <br></br>
+      <Body>
+        <SizeTable>
+          <Sizes><span>5</span></Sizes>
+          <Sizes><span>5.5</span></Sizes>
+          <Sizes><span>6</span></Sizes>
+          <Sizes><span>6.5</span></Sizes>
+          <Sizes><span>7</span></Sizes>
+          <Sizes><span>7.5</span></Sizes>
+          <Sizes><span>8</span></Sizes>
+          <Sizes><span>8.5</span></Sizes>
+          <Sizes><span>9</span></Sizes>
+          <Sizes><span>9.5</span></Sizes>
+          <Sizes><span>10</span></Sizes>
+          <Sizes><span>10.5</span></Sizes>
+          <Sizes><span>11</span></Sizes>
+        </SizeTable>
+      </Body>
+    </div>
+  )
+};
 
 export default SizeSelection;

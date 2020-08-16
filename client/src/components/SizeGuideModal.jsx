@@ -7,17 +7,10 @@ const Body = styled.div`
   display: flex;
   margin: 0;
   max-height: 92vh;
+  max-width: 85vw;
   padding: 0;
   visibility: visible;
-  overflow-y: auto;
-`;
-
-const Wrapper = styled.div`
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
+  z-index: 99;
 `;
 
 const BackDrop = styled.div`
@@ -27,24 +20,32 @@ const BackDrop = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 100;
+  z-index:1;
+
+
 `;
 
 const Box = styled.div`
+  background-color: #fff;
   border-bottom: 1px solid #000;
   border-left: 1px solid #000;
-  border-radius: 0;
-  background-color: #fff;
   border-right: 1px solid #000;
   border-top: 1px solid #000;
+  border-radius: 0;
   height: 80%;
   left: 50%;
   position: relative;
   padding:20px;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 45%;
-  z-index: 101;
+  width: 75%;
+  z-index: 2;
+
+`;
+
+const ContentBox = styled.div`
+  height: 100%;
+  overflow-y: auto;
 `;
 
 const Title = styled.h5`
@@ -70,6 +71,9 @@ const CloseButton = styled.button`
   text-align: center;
   top: -17px;
   width: 40px;
+  z-index: 100;
+  margin:0;
+  visibility: visible;
 `;
 
 
@@ -96,14 +100,14 @@ const SizeGuideModal = forwardRef((props, ref) => {
     return(
       <div>
         <Body>
-          <Wrapper>
-            <BackDrop>
-              <Box>
-              <SizeModalContent />
+          <BackDrop onClick={handleClose}>
+            <Box>
               <CloseButton onClick={handleClose}>&Chi;</CloseButton>
-              </Box>
-            </BackDrop>
-          </Wrapper>
+              <ContentBox>
+              <SizeModalContent />
+              </ContentBox>
+            </Box>
+          </BackDrop>
         </Body>
 
       </div>

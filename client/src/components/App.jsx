@@ -55,7 +55,7 @@ const App = (props) => {
     <Body>
       <MainBody></MainBody>
       <SideBar>
-        <CategoryReview />
+        <CategoryReview product={product[0]}/>
         <Title />
         <br></br>
         <Price productPrice={product[0].price}/>

@@ -16,7 +16,7 @@ let getAll = (callback) => {
 }
 
 let getOneProduct = (callback) => {
-  db.Shoes.find({id: 1}, (error, results) => {
+  db.Shoes.find({id: randomId}, (error, results) => {
     if(error) {
       console.log('Cannot get one product from database')
     } else {

@@ -57,6 +57,8 @@ const H3Tag = styled.h3`
   text-transform: uppercase;
   margin-top:0;
   // margin-left:0;
+  width: 100%;
+  // position: relative;
   margin-right:20px;
   padding:0;
   `;

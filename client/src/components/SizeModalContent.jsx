@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SizeTable from './SizeTable.jsx'
+import HowToMeasure from './HowToMeasure.jsx'
 
 
 const Container = styled.div`
@@ -101,8 +102,21 @@ const SizeModalContent = () => (
         </ToggleList>
       </ChartToggle>
       <SizeTable />
-      <p>Scroll horizontally to see more.</p>
+      <p style={{color: "rgba(0,0,0,0.8)"}}>Scroll horizontally to see more.</p>
     </section>
+    <section>
+      <div style={{marginalBottom: "40px", borderBottom:" 1px solid #767677"}}></div>
+    </section>
+    <section>
+      <h4 style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif"}}>IN BETWEEN SIZES?</h4>
+      <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif", fontWeight:"200"}}>For tight fit, go one size down.</p>
+      <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif" , fontWeight:"200"}}>For loose fit, go one size up.</p>
+    </section>
+    <section>
+      <h4 style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif"}}>NOT THE RIGHT SIZE OR COLOR?</h4>
+      <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif", fontWeight:"200"}}>No problem, return for free.</p>
+    </section>
+    <HowToMeasure />
   </Container>
 )
 

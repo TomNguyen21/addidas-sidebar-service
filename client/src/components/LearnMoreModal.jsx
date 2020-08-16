@@ -36,7 +36,7 @@ const Box = styled.div`
   background-color: #fff;
   border-right: 1px solid #000;
   border-top: 1px solid #000;
-  height: 22%;
+  height: auto;
   left: 50%;
   position: relative;
   padding-top: 20px;
