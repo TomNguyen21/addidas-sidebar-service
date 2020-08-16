@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-import InchTable from './InchTable.jsx'
+import InchTable from './InchTable.jsx';
+import CmTable from './CmTable.jsx';
 
 const Table = styled.div`
   display: block;
@@ -19,15 +20,24 @@ const TableInner = styled.div`
 `;
 
 
-const SizeTable = () => {
+const SizeTable = ({inch}) => {
 
-  return (
-    <Table>
-      <TableInner>
-        <InchTable />
-      </TableInner>
-    </Table>
-  )
+  if (inch) {
+    return (
+      <Table>
+        <TableInner>
+          <InchTable />
+        </TableInner>
+      </Table>
+    )
+  }
+    return (
+      <Table>
+        <TableInner>
+          <CmTable />
+        </TableInner>
+      </Table>
+    )
 }
 
 

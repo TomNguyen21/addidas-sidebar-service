@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import SizeTable from './SizeTable.jsx'
 import HowToMeasure from './HowToMeasure.jsx'
@@ -85,39 +85,47 @@ const ToggleButton = styled.button`
 
 `;
 
-const SizeModalContent = () => (
-  <Container>
-    <section>
-      <header>
-      <H4Tag>MEN'S AND WOMEN'S ADIDAS FOOTWEAR SIZING</H4Tag>
-      <h5>FIND YOUR SIZE</h5>
-      <ATag>Do you know how to measure?</ATag>
-      </header>
-      <ChartToggle>
-        <ToggleList>
-          <ToggleButton>cm</ToggleButton>
-        </ToggleList>
-        <ToggleList>
-          <ToggleButton>inch</ToggleButton>
-        </ToggleList>
-      </ChartToggle>
-      <SizeTable />
-      <p style={{color: "rgba(0,0,0,0.8)"}}>Scroll horizontally to see more.</p>
-    </section>
-    <section>
-      <div style={{marginalBottom: "40px", borderBottom:" 1px solid #767677"}}></div>
-    </section>
-    <section>
-      <h4 style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif"}}>IN BETWEEN SIZES?</h4>
-      <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif", fontWeight:"200"}}>For tight fit, go one size down.</p>
-      <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif" , fontWeight:"200"}}>For loose fit, go one size up.</p>
-    </section>
-    <section>
-      <h4 style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif"}}>NOT THE RIGHT SIZE OR COLOR?</h4>
-      <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif", fontWeight:"200"}}>No problem, return for free.</p>
-    </section>
-    <HowToMeasure />
-  </Container>
-)
+const SizeModalContent = () => {
 
+  const [inch, setInch] = useState(false);
+
+  const handleClick = () => {
+    setInch(!inch);
+  }
+
+  return (
+    <Container>
+      <section>
+        <header>
+        <H4Tag>MEN'S AND WOMEN'S ADIDAS FOOTWEAR SIZING</H4Tag>
+        <h5>FIND YOUR SIZE</h5>
+        <ATag>Do you know how to measure?</ATag>
+        </header>
+        <ChartToggle>
+          <ToggleList>
+            <ToggleButton onClick={handleClick}>cm</ToggleButton>
+          </ToggleList>
+          <ToggleList>
+            <ToggleButton onClick={handleClick}>inch</ToggleButton>
+          </ToggleList>
+        </ChartToggle>
+        <SizeTable inch={inch} />
+        <p style={{color: "rgba(0,0,0,0.8)"}}>Scroll horizontally to see more.</p>
+      </section>
+      <section>
+        <div style={{marginalBottom: "40px", borderBottom:" 1px solid #767677"}}></div>
+      </section>
+      <section>
+        <h4 style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif"}}>IN BETWEEN SIZES?</h4>
+        <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif", fontWeight:"200"}}>For tight fit, go one size down.</p>
+        <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif" , fontWeight:"200"}}>For loose fit, go one size up.</p>
+      </section>
+      <section>
+        <h4 style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif"}}>NOT THE RIGHT SIZE OR COLOR?</h4>
+        <p style={{fontFamily: "font-family: AdihausDIN,Helvetica,Arial,sans-serif", fontWeight:"200"}}>No problem, return for free.</p>
+      </section>
+      <HowToMeasure />
+    </Container>
+)
+  }
 export default SizeModalContent;
