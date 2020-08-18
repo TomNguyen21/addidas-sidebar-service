@@ -8,10 +8,10 @@ db.once('open', function() {
 });
 
 const productSchema = new mongoose.Schema({
-  id: Number,
+  id: {type: Number, unique: true},
   category: String,
   quantity: Number,
-  size: Number,
+  size : Number,
   name: String,
   numberOfReview: Number,
   color: String,
@@ -22,19 +22,19 @@ const productSchema = new mongoose.Schema({
 const Shoes = mongoose.model('Shoes', productSchema);
 
 
-let getAll = (callback) => {
-  Shoes.find((error, results) => {
-    if(error) {
-      console.log('cannot get data from database')
-    } else {
-      callback(null,results)
-    }
-  });
-}
+// let getAll = (callback) => {
+//   Shoes.find((error, results) => {
+//     if(error) {
+//       console.log('cannot get data from database')
+//     } else {
+//       callback(null,results)
+//     }
+//   });
+// }
 
 module.exports.db = db;
 module.exports.Shoes = Shoes;
-module.exports.getAll = getAll;
+// module.exports.getAll = getAll;
 
 
 

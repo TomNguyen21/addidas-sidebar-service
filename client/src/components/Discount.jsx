@@ -11,7 +11,6 @@ const DiscountDiv = styled.h5`
 const Description = styled.span`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-size: 14px;
-  // letter-spacing: 2px;
 `;
 
 const Discount = ()=> (

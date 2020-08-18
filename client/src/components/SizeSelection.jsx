@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {setState, useState} from 'react';
 import styled from 'styled-components';
 
 const Body = styled.div`
@@ -35,9 +35,7 @@ const Sizes = styled.button`
   align-items: center;
   background-color: #FFF;
   border: 1px solid #ebedee;
-  border-left-width: 1px;
-  border-left-style: solid;
-  border-left-color: rgb(235, 237, 238);
+  border-left-width: 1px solid rgb(235, 237, 238);
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
@@ -46,40 +44,42 @@ const Sizes = styled.button`
   font-size: 13px;
   font-weight: 400;
   height: 40px;
-  // margin-bottom: -1px;
   justify-content: center;
   line-height: 1em;
   letter-spacing: -.2px;
   text-align: center;
   text-transform: uppercase;
-  &:*,before,after {
-    box-sizing: border-box;
+  &:hover {
+    background-color: #000;
+    color: #fff;
   }
   touch-action: manipulation;
 `;
 
-const SizeSelection = () => (
-  <div>
-    <SelectSize>Select size</SelectSize>
-    <br></br>
-    <Body>
-      <SizeTable>
-        <Sizes><span>5</span></Sizes>
-        <Sizes><span>5.5</span></Sizes>
-        <Sizes><span>6</span></Sizes>
-        <Sizes><span>6.5</span></Sizes>
-        <Sizes><span>7</span></Sizes>
-        <Sizes><span>7.5</span></Sizes>
-        <Sizes><span>8</span></Sizes>
-        <Sizes><span>8.5</span></Sizes>
-        <Sizes><span>9</span></Sizes>
-        <Sizes><span>9.5</span></Sizes>
-        <Sizes><span>10</span></Sizes>
-        <Sizes><span>10.5</span></Sizes>
-        <Sizes><span>11</span></Sizes>
-      </SizeTable>
-    </Body>
-  </div>
-);
+const SizeSelection = ({postData, id}) => {
+  const [size, setSize] = useState(0)
+  const [quantity, setQuantity] = useState(0)
+
+  const handleClick = (event) => {
+    event.preventDefault;
+    setSize(event.target.value);
+    setQuantity(quantity+1);
+    postData({id, size, quantity});
+  }
+
+  const sizes = [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11]
+  return (
+    <div>
+      <SelectSize>Select size</SelectSize>
+      <br></br>
+      <Body>
+        <SizeTable>{sizes.map(size =>
+            <Sizes name="size" value={size} onClick={handleClick}>{size}</Sizes>
+          )}
+        </SizeTable>
+      </Body>
+    </div>
+  )
+};
 
 export default SizeSelection;

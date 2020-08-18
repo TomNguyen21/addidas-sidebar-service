@@ -7,17 +7,12 @@ const ReviewButton = styled.button`
   background: none;
   border: none;
   padding: 0;
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  text-align: inherit;
-  text-transform: inherit;
-
 `;
 
 const Wrapper = styled.div`
   display: flex;
+  font-size: 11px;
+  line-height: 15px;
   flex-flow: row norwrap;
   justify-content: space-between;
   text-align: center;
@@ -27,18 +22,16 @@ const Category = styled.div`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  // letter-spacing: 2px;
+  letter-spacing: 2px;
 `;
 
 const Review = styled.div`
-  display: inline-flex;
   align-item: center;
+  cursor: pointer;
+  display: inline-flex;
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-line: underline;
-  background-color: transparent;
-  cursor: pointer;
   // letter-spacing: 2px;
   ${ReviewButton}:hover & {
     background-color: #000;
@@ -48,11 +41,11 @@ const Review = styled.div`
 `;
 
 
-const CategoryReview = () => (
+const CategoryReview = ({product}) => (
   <div>
       <Wrapper>
         <Category>
-          women . original
+          {product.category}
         </Category>
         <ReviewButton>
           <Review>
@@ -61,7 +54,7 @@ const CategoryReview = () => (
             <Stars />
             <Stars />
             <Stars />
-            7753
+            {product.numberOfReview}
           </Review>
         </ReviewButton>
       </Wrapper>

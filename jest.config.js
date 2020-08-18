@@ -188,4 +188,8 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+
+  moduleNameMapper: {
+    '^styled-components': '<rootDir>/node_modules/styled-components',
+  }
 };
