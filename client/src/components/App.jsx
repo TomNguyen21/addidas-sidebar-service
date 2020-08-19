@@ -29,8 +29,6 @@ const SideBar = styled.div`
   padding-left: 30px;
 `;
 
-
-
 const App = (props) => {
   const [isOpen, setisOpen] = useState(false);
   const [product, setProduct] = useState([])
