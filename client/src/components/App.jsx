@@ -13,7 +13,7 @@ import AddToBag from './AddToBag.jsx';
 
 const Body = styled.div`
   display: flex;
-  position: sticky;
+  // position: sticky;
   background: #fff;
   padding: 30px 40px;
   overflow-x: hidden;
@@ -58,7 +58,6 @@ const App = (props) => {
   }
   return (
     <Body>
-      <MainBody></MainBody>
       <SideBar>
         <CategoryReview product={product[0]}/>
         <Title />

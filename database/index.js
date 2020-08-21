@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/sidebar');
-
+mongoose.connect('mongodb://172.17.0.2:27017/sidebar');
+// mongodb://172.17.0.2:27017/sidebar
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
