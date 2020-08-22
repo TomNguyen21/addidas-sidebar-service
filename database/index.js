@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://172.17.0.2:27017/sidebar');
+mongoose.connect('mongodb://172.17.0.3:27017/sidebar', { useNewUrlParser: true, useUnifiedTopology: true });
 // mongodb://172.17.0.2:27017/sidebar
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  // we're connected!
+  console.log('were connected!')
 });
 
 const productSchema = new mongoose.Schema({
@@ -18,6 +18,7 @@ const productSchema = new mongoose.Schema({
   price: Number,
   thumbnailPC: String
 });
+
 
 const Shoes = mongoose.model('Shoes', productSchema);
 
