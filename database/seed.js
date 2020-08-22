@@ -28,7 +28,7 @@ var insertSampleData = function () {
       price: price[randomIndex()],
       thumbnailPC: url[randomIndex()]
     })
-    .then(() => database.db.disconnect())
+    // .then(() => database.db.disconnect())
   }
 };
 
