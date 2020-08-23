@@ -31,7 +31,8 @@ const SideBar = styled.div`
 
 const App = (props) => {
   const [isOpen, setisOpen] = useState(false);
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState([]);
+  const [productImg, setProductImg] = useState([])
 
   const getData = () => {
     axios.get('/sidebar/summary')
@@ -49,6 +50,22 @@ const App = (props) => {
     .catch(console.log)
 
   }
+
+  // const getkixData = () => {
+  //   axios.get('/kix')
+  //   .then(updatekixData)
+  //   .catch(console.log)
+  // }
+
+  // const postKixData = (product) => {
+  //   axios.post('/kix', product)
+  //   .then(getKixData)
+  //   .catch(console.log)
+  // }
+
+  // const updatekixData = (product) => {
+  //   setProductImg(product.data);
+  // }
 
   useEffect(() => {
     getData()

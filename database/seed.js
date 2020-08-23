@@ -10,7 +10,7 @@ var category = ["ORIGINALS", "RUNNING","WORKOUT","SOCCER","TENNIS"]
 var color = ["WHITE", "BLACK", "GRAY", "RED", "BLUE"]
 var name = ["SUPERSTAR SHOES", "SUPERNAVA SHOES", "SL20 SHOES", "APIZERO ADIUS SHOES", "ULTRABOOST 20 SHOES"]
 var price = [100, 110,120, 130,140]
-var url = [ "https://assets.adidas.com/images/w_600,f_auto,q_auto/4e894c2b76dd4c8e9013aafc016047af_9366/Superstar_Shoes_White_FV3284_01_standard.jpg","https://assets.adidas.com/images/w_600,f_auto,q_auto/c1c72dcb51de4f63b439abc200ff4110_9366/Terrex_Two_GORE_TEX_Trail_Running_Shoes_Green_FV7359_01_standard.jpg", "https://assets.adidas.com/images/w_600,f_auto,q_auto/8c985fbe82564b83b37cab5800e66930_9366/adidas_by_Stella_McCartney_Ultraboost_20_Shoe_Yellow_FW6360_01_standard.jpg", "https://assets.adidas.com/images/w_600,f_auto,q_auto/e466d77570f74557bd1dab3c011ae2db_9366/SoleMatch_Bounce_Hard_Court_Shoes_Blue_EH2866_01_standard.jpg", "https://assets.adidas.com/images/w_600,f_auto,q_auto/48fe3811c39449f1a9d7aba6010e8f5b_9366/Novamotion_Shoes_Blue_FW7297_01_standard.jpg" ]
+var url = [ "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_Black/superstar_Black.jpg","https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White/Superstar_white.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Sparkle/Superstar_White_Sparkle.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Silver/1.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Black/Superstar_White_Black.jpg" ]
 
 var numReviews = () => {return Math.floor(Math.random()* (800-20) + 20)}
 
@@ -26,7 +26,8 @@ var insertSampleData = function () {
       numberOfReview: numReviews(),
       color: color[randomIndex()],
       price: price[randomIndex()],
-      thumbnailPC: url[randomIndex()]
+      thumbnailPC: url[randomIndex()],
+      main: url[0]
     })
     // .then(() => database.db.disconnect())
   }

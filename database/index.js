@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://172.17.0.3:27017/sidebar', { useNewUrlParser: true, useUnifiedTopology: true });
 // mongodb://172.17.0.2:27017/sidebar
+// 172.17.0.3:27017
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -16,7 +17,8 @@ const productSchema = new mongoose.Schema({
   numberOfReview: Number,
   color: String,
   price: Number,
-  thumbnailPC: String
+  thumbnailPC: String,
+  mail: String
 });
 
 
