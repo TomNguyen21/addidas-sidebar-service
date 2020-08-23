@@ -35,6 +35,17 @@ let updateProduct = (product, callback) => {
   });
 }
 
+
+// let updateProductColor = (product, callback) => {
+//   db.Shoes.findOneAndUpdate({"id": product.id},{"$set":{"main": product.main}}, (error, results) => {
+//     if (error) {
+//       console.log('cannot post size nad quantity')
+//     } else {
+//       callback(null, results)
+//     }
+//   });
+// }
+
 module.exports.getAll= getAll;
 module.exports.getOneProduct = getOneProduct;
 module.exports.updateProduct = updateProduct;

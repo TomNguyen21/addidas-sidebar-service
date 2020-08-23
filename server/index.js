@@ -20,7 +20,6 @@ app.get('/sidebar/summary', function (req, res) {
 
 app.post('/sidebar/summary', (req, res) => {
   model.updateProduct(req.body, (err, results) => {
-
     if (err) {
       console.log('err', err);
       res.statuse(401)
@@ -29,5 +28,16 @@ app.post('/sidebar/summary', (req, res) => {
     }
   })
 })
+
+// app.post('/kix', (req, res) => {
+//   model.updateProductColor(req.body, (err, results) => {
+//     if (err) {
+//       console.log('err', err);
+//       res.statuse(401)
+//     } else {
+//       res.status(201).end()
+//     }
+//   })
+// })
 
 app.listen(PORT, () => console.log('Server is listening at port', PORT))
