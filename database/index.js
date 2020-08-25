@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://172.17.0.3:27017/sidebar', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/sidebar', { useNewUrlParser: true, useUnifiedTopology: true });
 // mongodb://172.17.0.2:27017/sidebar
 // 172.17.0.3:27017
 const db = mongoose.connection;
