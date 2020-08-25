@@ -1,11 +1,13 @@
 const express = require('express');
 const model = require('../database/model.js');
+const path = require('path');
 const app = express();
 const PORT = 3380;
+const expressStaticGzip = require('express-static-gzip');
 
-app.use(express.static(__dirname + '/../client/dist'));
+// app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
-
+app.use(expressStaticGzip(path.join(__dirname, '../client/dist'), { enableBrotli: true, orderPreference: ['br'] }));
 
 app.get('/sidebar/summary', function (req, res) {
   model.getOneProduct((err, results) => {
