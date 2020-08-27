@@ -25,6 +25,18 @@ let getOneProduct = (callback) => {
   });
 }
 
+let insertProduct = (req, res) => {
+  if(!req.body.id) {
+    return res.status(400).send({
+      message: "required field can not be empty",
+    });
+  }
+  const newProduct = new db.Shoes({
+    id: 4325,
+
+  })
+}
+
 let updateProduct = (product, callback) => {
   db.Shoes.findOneAndUpdate({"id": product.id},{"$set":{"size": product.size, "quantity": product.quantity}}, (error, results) => {
     if (error) {
