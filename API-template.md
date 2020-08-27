@@ -3,7 +3,7 @@
 
 ## GET Request
 
-  - GET /sidebar/summary/
+  - GET /sidebar/summary/:id
 
 **Path Parameters:**
   * `id` id
@@ -31,9 +31,7 @@
 
 ## POST Request
 
-
-
-**Path Parameters:**
+  - POST /sidebar/summary/
 
 **Success Status Code:** `201`
 
@@ -54,20 +52,32 @@
 
 ## PATCH Request
 
-
+  - PATCH /sidebar/summary/:id
 
 **Path Parameters:**
+  * `id` id
 
-**Success Status Code:** `202`
+**Success Status Code:** `204`
 
-**Returns:**
+**Returns:** Expects JSON with any of the following keys.(include only keys to be updated)
+
+```json
+    {
+      "category": "String",
+      "quantity": "Number",
+      "size": "Number",
+      "name": "String",
+      "color": "String",
+      "price": "Number",
+      "thumbnailPC": "String",
+      "main": "String"
+    }
+```
 
 ## DELETE Request
 
-
+  - DELETE /sidebar/summary/:id
 
 **Path Parameters:**
-
-**Success Status Code:** `202`
-
-**Returns:**
+  * `id` id
+**Success Status Code:** `204`
