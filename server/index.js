@@ -13,9 +13,9 @@ app.use(expressStaticGzip(path.join(__dirname, '../client/dist'), { enableBrotli
 // extend existing API and create PUT and DELETE requests
 
 app.get('/sidebar/summary', function (req, res) {
-  console.log(req, 'req body');
+  // console.log(req, 'req body');
 
-  model.getOneProduct(req, (err, results) => {
+  model.getOneProduct((err, results) => {
     if (err) {
       console.log('error', err);
       res.status(400);

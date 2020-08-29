@@ -14,18 +14,14 @@
 
 ```json
     {
-      "id": {
-        "type": "Number",
-        "unique": true,
-      },
+      "id": "Number",
       "category": "String",
       "quantity": "Number",
       "size": "Number",
       "name": "String",
       "color": "String",
       "price": "Number",
-      "thumbnailPC": "String",
-      "main": "String"
+      "thumbnailPC": "String"
     }
 ```
 
@@ -45,8 +41,7 @@
       "name": "String",
       "color": "String",
       "price": "Number",
-      "thumbnailPC": "String",
-      "main": "String"
+      "thumbnailPC": "String"
     }
 ```
 
@@ -69,8 +64,7 @@
       "name": "String",
       "color": "String",
       "price": "Number",
-      "thumbnailPC": "String",
-      "main": "String"
+      "thumbnailPC": "String"
     }
 ```
 
@@ -80,4 +74,5 @@
 
 **Path Parameters:**
   * `id` id
+
 **Success Status Code:** `204`
