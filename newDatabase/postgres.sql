@@ -20,14 +20,14 @@ CREATE TABLE shoeInfo (
   numberOfReview SMALLINT,
   price SMALLINT,
   thumbnailPC TEXT,
-  PRIMARY KEY(shoe_id)
-    FOREIGN KEY(category_id)
-      REFERENCES category(category_id)
+  -- PRIMARY KEY(shoe_id)
+  --   FOREIGN KEY(category_id)
+  --     REFERENCES category(category_id)
 )
 
 CREATE TABLE shoeSize (
   size_id INT AUTO_INCREMENT,
-  size
+  size SMALLINT
 )
 
 CREATE TABLE shoeColor (
@@ -38,7 +38,10 @@ CREATE TABLE shoeColor (
 CREATE TABLE inventory (
   size_id INT,
   color_id INT,
-  shoe_id INT
+  shoe_id INT,
+  -- PRIMARY KEY(shoe_id)
+  --   FOREIGN KEY(category_id)
+  --     REFERENCES category(category_id)
 )
 -- table for shoe size and color
 -- shoe color -> shoe id then create size id
