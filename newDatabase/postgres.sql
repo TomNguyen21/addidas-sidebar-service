@@ -4,17 +4,11 @@ CREATE SCHEMA sidebar;
 
 USE sidebar;
 
-CREATE TABLE category (
-  category_id INT AUTO_INCREMENT,
-  category_name VARCHAR(20),
-  thumbnailPC TEXT,
-  PRIMARY KEY(category_id)
-)
+
 
 -- primary records shoe
 CREATE TABLE shoeInfo (
   shoe_id INT AUTO_INCREMENT,
-  category_id INT,
   quantity SMALLINT,
   shoeName VARCHAR(20),
   numberOfReview SMALLINT,
@@ -23,6 +17,13 @@ CREATE TABLE shoeInfo (
   -- PRIMARY KEY(shoe_id)
   --   FOREIGN KEY(category_id)
   --     REFERENCES category(category_id)
+)
+
+CREATE TABLE category (
+  category_id INT AUTO_INCREMENT,
+  category_name VARCHAR(20),
+  thumbnailPC TEXT,
+  -- PRIMARY KEY(category_id)
 )
 
 CREATE TABLE shoeSize (
@@ -36,9 +37,11 @@ CREATE TABLE shoeColor (
 )
 
 CREATE TABLE inventory (
+  inventory_id INT,
   size_id INT,
   color_id INT,
   shoe_id INT,
+  category_id INT,
   -- PRIMARY KEY(shoe_id)
   --   FOREIGN KEY(category_id)
   --     REFERENCES category(category_id)

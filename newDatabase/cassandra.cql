@@ -35,7 +35,7 @@ CREATE TABLE shoeColor (
   color VARCHAR
 )
 
-CREATE TABLE join_table (
+CREATE TABLE inventory (
   size_id INT,
   color_id VARCHAR,
   size_id INT

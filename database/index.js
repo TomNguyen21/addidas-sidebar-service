@@ -21,9 +21,7 @@ const productSchema = new mongoose.Schema({
   mail: String
 });
 
-
 const Shoes = mongoose.model('Shoes', productSchema);
-
 
 // let getAll = (callback) => {
 //   Shoes.find((error, results) => {
@@ -38,6 +36,3 @@ const Shoes = mongoose.model('Shoes', productSchema);
 module.exports.db = db;
 module.exports.Shoes = Shoes;
 // module.exports.getAll = getAll;
-
-
-

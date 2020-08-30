@@ -12,14 +12,24 @@
 
 **Returns:** JSON
 
+
+send as little as possible from server
+
+name of shoe is constant
+price is constant
+thumbnail is constant
+what is a single value and what needs multiple value 
+
+
+
 ```json
     {
       "id": "Number",
       "category": "String",
       "quantity": "Number",
-      "size": "Number",
+      "size": "Array",
       "name": "String",
-      "color": "String",
+      "color": "Array",
       "price": "Number",
       "thumbnailPC": "String"
     }
@@ -37,9 +47,9 @@
     {
       "category": "String",
       "quantity": "Number",
-      "size": "Number",
+      "size": "Array",
       "name": "String",
-      "color": "String",
+      "color": "Array",
       "price": "Number",
       "thumbnailPC": "String"
     }
@@ -60,9 +70,9 @@
     {
       "category": "String",
       "quantity": "Number",
-      "size": "Number",
+      "size": "Array",
       "name": "String",
-      "color": "String",
+      "color": "Array",
       "price": "Number",
       "thumbnailPC": "String"
     }
