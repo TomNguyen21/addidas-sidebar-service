@@ -8,9 +8,8 @@ USE sidebar;
 
 -- primary records shoe
 CREATE TABLE shoeInfo (
-  shoe_id INT AUTO_INCREMENT,
-  quantity SMALLINT,
   shoeName VARCHAR(20),
+  quantity SMALLINT,
   numberOfReview SMALLINT,
   price SMALLINT,
   thumbnailPC TEXT,

@@ -3,7 +3,7 @@ let faker = require('faker');
 const argv = require('yargs').argv
 
 const lines = argv.lines || 10000000;
-const filename = argv.output || 'shoeInfo.csv';
+let filename = argv.output || 'shoeInfo.csv';
 const stream = fs.createWriteStream(filename);
 
 var randomIdx = () => {
@@ -18,24 +18,14 @@ var shoePrice = [100, 110,120, 130, 140];
 var url = [ "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_Black/superstar_Black.jpg","https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White/Superstar_white.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Sparkle/Superstar_White_Sparkle.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Silver/1.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Black/Superstar_White_Black.jpg" ];
 
 const createShoeInfo = () => {
-  const quantity = 0;
   const shoeName = name[randomIdx()];
+  const quantity = 1;
   const numberOfReview = faker.random.number(100);
   const price = shoePrice[randomIdx()];
   const thumbnailPC = url[randomIdx()];
 
-  return `${quantity},${shoeName},${numberOfReview},${price},${thumbnailPC}\n`
+  return `${shoeName},${quantity},${numberOfReview},${price},${thumbnailPC}\n`
 };
-
-// const createPost = () => {
-//   const userId = faker.random.number(10)
-//   const title = faker.hacker.phrase()
-//   const content = faker.lorem.paragraph()
-//   const image = faker.image.image()
-//   const date = faker.date.recent()
-
-//   return `${userId},${title},${content},${image},${date}\n`
-// }
 
 const startWriting = (writeStream, encoding, done) => {
   let i = lines
@@ -64,17 +54,52 @@ const startWriting = (writeStream, encoding, done) => {
 }
 
 //write our `header` line before we invoke the loop
-stream.write(`userId,title,content,image,date\n`, 'utf-8')
+stream.write(`shoeName,quantity,numberOfReview,price,thumbnailPC\n`, 'utf-8')
 //invoke startWriting and pass callback
 startWriting(stream, 'utf-8', () => {
   stream.end()
 })
 
+const createCategory = (index) => {
+  let category_id = index;
+  let category_name = category[randomIdx()];
 
+  return `${category_id},${category_name})\n`
+}
 
+const categoryWriting = (writeStream, encoding, done) => {
+  let i = lines
+  function writing(){
+    let canWrite = true
+    do {
+      i--
+      let post = createCategory(i)
+      //check if i === 0 so we would write and call `done`
+      if(i === 0){
+        // we are done so fire callback
+        writeStream.write(post, encoding, done)
+      }else{
+        // we are not done so don't fire callback
+        writeStream.write(post, encoding)
+      }
+      //else call write and continue looping
+    } while(i > 0 && canWrite)
+    if(i > 0 && !canWrite){
+      //our buffer for stream filled and need to wait for drain
+      // Write some more once it drains.
+      writeStream.once('drain', writing);
+    }
+  }
+  writing()
+}
 
-
-
+fileName = category.csv;
+//write our `header` line before we invoke the loop
+stream.write(`category_id, category_name\n`, 'utf-8')
+//invoke startWriting and pass callback
+startWriting(stream, 'utf-8', () => {
+  stream.end()
+})
 
 
 
