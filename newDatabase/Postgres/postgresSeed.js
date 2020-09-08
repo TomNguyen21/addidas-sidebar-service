@@ -2,11 +2,11 @@ let fs = require('fs');
 let faker = require('faker');
 const argv = require('yargs').argv
 
-const lines = argv.lines || 10000000;
-let filename = argv.output || 'shoeInfo.csv';
-const stream = fs.createWriteStream(filename);
+const lines = argv.lines || 10;
+var filename = argv.output || 'sizeInfo.csv';
+var stream = fs.createWriteStream(filename);
 
-var randomIdx = () => {
+var randomIndex = () => {
   var index = Math.floor(Math.random()* 5)
   return index;
 }
@@ -16,31 +16,53 @@ var color = ["WHITE", "BLACK", "GRAY", "RED", "BLUE", "BROWN", "MAROON", "YELLOW
 var name = ["SUPERSTAR SHOES", "SUPERNAVA SHOES", "SL20 SHOES", "APIZERO ADIUS SHOES", "ULTRABOOST 20 SHOES"];
 var shoePrice = [100, 110,120, 130, 140];
 var url = [ "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_Black/superstar_Black.jpg","https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White/Superstar_white.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Sparkle/Superstar_White_Sparkle.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Silver/1.jpg", "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/Options/SuperStar_White_Black/Superstar_White_Black.jpg" ];
+var size = [6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5];
 
 const createShoeInfo = () => {
-  const shoeName = name[randomIdx()];
+  const shoeName = name[randomIndex()];
   const quantity = 1;
   const numberOfReview = faker.random.number(100);
-  const price = shoePrice[randomIdx()];
-  const thumbnailPC = url[randomIdx()];
+  const price = shoePrice[randomIndex()];
+  const thumbnailPC = url[randomIndex()];
 
   return `${shoeName},${quantity},${numberOfReview},${price},${thumbnailPC}\n`
 };
 
+const createCategory = (index) => {
+  const category_name = category[index]
+
+  return `${category_name}\n`
+};
+
+const createColor = (index) => {
+  const color_name = color[index];
+
+  return `${color_name}\n`;
+}
+
+const createSize = (index) => {
+  const size_name = size[index]
+
+  return `${size_name}\n`;
+}
+
+const createInventory = () => {
+
+}
 const startWriting = (writeStream, encoding, done) => {
   let i = lines
   function writing(){
     let canWrite = true
     do {
       i--
-      let post = createShoeInfo()
+      let post = createSize(i)
       //check if i === 0 so we would write and call `done`
       if(i === 0){
         // we are done so fire callback
-        writeStream.write(post, encoding, done)
+        writeStream.write(`${i},${post}`, encoding, done)
       }else{
         // we are not done so don't fire callback
-        writeStream.write(post, encoding)
+        writeStream.write(`${i},${post}`, encoding)
       }
       //else call write and continue looping
     } while(i > 0 && canWrite)
@@ -54,54 +76,11 @@ const startWriting = (writeStream, encoding, done) => {
 }
 
 //write our `header` line before we invoke the loop
-stream.write(`shoeName,quantity,numberOfReview,price,thumbnailPC\n`, 'utf-8')
+stream.write(`category_id,category_name\n`, 'utf-8')
 //invoke startWriting and pass callback
 startWriting(stream, 'utf-8', () => {
   stream.end()
 })
-
-const createCategory = (index) => {
-  let category_id = index;
-  let category_name = category[randomIdx()];
-
-  return `${category_id},${category_name})\n`
-}
-
-const categoryWriting = (writeStream, encoding, done) => {
-  let i = lines
-  function writing(){
-    let canWrite = true
-    do {
-      i--
-      let post = createCategory(i)
-      //check if i === 0 so we would write and call `done`
-      if(i === 0){
-        // we are done so fire callback
-        writeStream.write(post, encoding, done)
-      }else{
-        // we are not done so don't fire callback
-        writeStream.write(post, encoding)
-      }
-      //else call write and continue looping
-    } while(i > 0 && canWrite)
-    if(i > 0 && !canWrite){
-      //our buffer for stream filled and need to wait for drain
-      // Write some more once it drains.
-      writeStream.once('drain', writing);
-    }
-  }
-  writing()
-}
-
-fileName = category.csv;
-//write our `header` line before we invoke the loop
-stream.write(`category_id, category_name\n`, 'utf-8')
-//invoke startWriting and pass callback
-startWriting(stream, 'utf-8', () => {
-  stream.end()
-})
-
-
 
 
 
