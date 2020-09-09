@@ -1,9 +1,9 @@
 let fs = require('fs');
 let faker = require('faker');
 
-const lines = 10000000;
+const lines = 1000000;
 // maybe have in function to manipulate
-var filename = 'shoeInfoCassandra.csv';
+var filename = 'shoeInfoCassandra1.csv';
 var stream = fs.createWriteStream(filename);
 
 // use arrays of different lengths and modulo to get pseudo random results

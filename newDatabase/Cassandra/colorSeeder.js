@@ -1,7 +1,7 @@
 const fs = require('fs');
 const v8 = require('v8');
 const csv = require('csvtojson');
-const csvFilePath = './shoeInfoCassandra.csv';
+const csvFilePath = './shoeInfoCassandra1.csv';
 let fileindex = 1;
 
 
@@ -60,7 +60,7 @@ const writeLine = () => {
       };
         writeNtimes(writeStream, () => {
           console.log('color written!')
-          writeNtimes.end();
+          writeStream.end();
         })
   });
 }
