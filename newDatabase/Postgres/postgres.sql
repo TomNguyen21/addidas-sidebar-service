@@ -10,6 +10,7 @@ USE sidebar;
 CREATE TABLE shoeInfo (
   shoe_id INT,
   shoeName VARCHAR(20),
+  category VARCHAR(20),
   quantity SMALLINT,
   numberOfReview SMALLINT,
   price SMALLINT,
@@ -17,13 +18,6 @@ CREATE TABLE shoeInfo (
   PRIMARY KEY(shoe_id)
   --   FOREIGN KEY(category_id)
   --     REFERENCES category(category_id)
-)
-
-CREATE TABLE category (
-  category_id INT AUTO_INCREMENT,
-  category_name VARCHAR(20),
-  thumbnailPC TEXT,
-  -- PRIMARY KEY(category_id)
 )
 
 CREATE TABLE shoeSize (
@@ -41,7 +35,6 @@ CREATE TABLE inventory (
   size_id INT,
   color_id INT,
   shoe_id INT,
-  category_id INT,
   -- PRIMARY KEY(shoe_id)
   --   FOREIGN KEY(category_id)
   --     REFERENCES category(category_id)

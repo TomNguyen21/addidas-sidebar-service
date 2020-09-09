@@ -2,8 +2,8 @@ const fs = require('fs');
 const v8 = require('v8');
 const csv = require('csvtojson');
 let fileindex = 1;
-let csvFilePath = `./seedFiles/colorInfo_${fileindex}.csv`;
-let filename = `./seedFiles/sizeInfo_${fileindex}.csv`;
+let csvFilePath = `./seedFiles/colorInfo10_${fileindex}.csv`;
+let filename = `./seedFiles/sizeInfo10_${fileindex}.csv`;
 let writeStream = fs.createWriteStream(filename);
 
 let colorArray = ["WHITE", "BLACK", "GRAY", "RED", "BLUE", "BROWN", "MAROON", "YELLOW", "TAN", "CAMO", "BROWN", "RED", "WHITE", "BLUE", "BLACK", "GRAY"];
@@ -15,16 +15,13 @@ var quantityArray = [1, 2, 3, 4, 5, 1, 3, 2, 1, 1];
 
 
 
-const writeLine = () => {
-   csv()
-    .fromFile(csvFilePath)
-    .then((shoes) => {
-      //declare file path
-
-      let writeNtimes = (writeStream, callback) => {
-
-        let i = 0;
-        let writing = () => {
+const writeLine = (writer, callback) => {
+  csv()
+  .fromFile(csvFilePath)
+  .then((shoes) => {
+    //declare file path
+      let i = 0;
+      let writing = () => {
         let ok = true;
         do {
           var shoe = shoes[i];
@@ -38,39 +35,36 @@ const writeLine = () => {
             string += `${shoe_id},${color},${size},${quantity}\n`
           }
           if (i === shoes.length - 1) {
-            writeStream.write(string, 'utf-8', callback);
+            writer.write(string, 'utf-8', callback);
           } else {
-            ok = writeStream.write(string, 'utf-8')
+            ok = writer.write(string, 'utf-8')
           }
-          if((i + 1 % 1000000) === 0) {
+          if(i % 1000000 === 0) {
             console.log(`${i} shoes`)
-            fileindex += 1;
-            filename = `./seedFiles/sizeInfo_${fileindex}.csv`;
-            writeStream = fs.createWriteStream(filename);
-            writeStream.write('color,id,size,quantity\n');
           }
           i += 1;
         } while(i < shoes.length && ok)
         if (i < shoes.length) {
           // writeFile 2/ 3
-          writeStream.once('drain', writing)
+          writer.once('drain', writing)
         }
-        // return new Promise(function (resolve) {
-        //   resolve(final_str)
-        // })
+      // return new Promise(function (resolve) {
+      //   resolve(final_str)
+      // })
       }
       writing();
-
-      };
-        writeNtimes(writeStream, () => {
-          console.log('size written!')
-          writeStream.end();
-        })
-  });
-}
+    });
+      // writeNtimes(writeStream, () => {
+      //   console.log('size written!')
+      //   writeStream.end();
+      // })
+};
 
 
 // const writeStream = fs.createWriteStream(`./seedFiles/newColor${fileIdx}.csv`)
 writeStream.write('id,color,size,quantity\n');
 // writeNTimes 2/ 2
-writeLine();
+writeLine(writeStream, () => {
+    console.log('size written! hopefully')
+    writeStream.end();
+  });

@@ -5,7 +5,7 @@ const csvFilePath = './shoeInfoCassandra1.csv';
 let fileindex = 1;
 
 
-let filename = `./seedFiles/colorInfo_${fileindex}.csv`;
+let filename = `./seedFiles/colorInfo10_${fileindex}.csv`;
 let writeStream = fs.createWriteStream(filename);
 
 let colorArray = ["WHITE", "BLACK", "GRAY", "RED", "BLUE", "BROWN", "MAROON", "YELLOW", "TAN", "CAMO", "BROWN", "RED", "WHITE", "BLUE", "BLACK", "GRAY"];
@@ -13,13 +13,11 @@ var url = [ "https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Car
 
 let colorAmount = [3, 4, 2, 5, 2, 3, 4, 5, 3, 2, 6, 4, 3];
 
-const writeLine = () => {
+const writeLine = (writer, callback) => {
    csv()
     .fromFile(csvFilePath)
     .then((shoes) => {
       //declare file path
-      let writeNtimes = (writeStream, callback) => {
-
         let i = 0;
         let writing = () => {
         let ok = true;
@@ -41,14 +39,11 @@ const writeLine = () => {
             ok = writeStream.write(string, 'utf-8')
           }
           if((i +1 % 1000000) === 0) {
-            console.log(`${i} shoes`)
-            fileindex += 1;
-            filename = `./seedFiles/colorInfo_${fileindex}.csv`;
-            writeStream = fs.createWriteStream(filename);
+            console.log(`${i} shoes`);
           }
           i += 1;
         } while(i < shoes.length && ok)
-        if (i < shoes.length && !ok) {
+        if (i < shoes.length) {
           // writeFile 2/ 3
           writeStream.once('drain', writing)
         }
@@ -57,24 +52,12 @@ const writeLine = () => {
         // })
       }
       writing();
-      };
-        writeNtimes(writeStream, () => {
-          console.log('color written!')
-          writeStream.end();
-        })
-  });
-}
-
-
-// console.log(writeLine(), 44)
-const checkMemoryNative = () => {
-  console.log("Memory Usage: ", process.memoryUsage())
-}
-
-const printHeapStats = () => {
-  console.log('Heap Status', v8.getHeapSpaceStatistics())
-}
-// console.log(v8.getHeapStatistics());
+      });
+      // writeNtimes(writeStream, () => {
+      //   console.log('color written!')
+      //   writeStream.end();
+      // })
+    };
 
 
 // writeNTimes 1/ 2
@@ -113,7 +96,10 @@ const printHeapStats = () => {
 const line1 = 'id,color,name,price,thumbnail\n';
 writeStream.write(line1);
 // writeNTimes 2/ 2
-writeLine();
+writeLine(writeStream, () => {
+    console.log('color written!')
+    writeStream.end();
+  });
 // writeNtimes(writeStream, () => {
 //   console.log('color written!')
 // })
