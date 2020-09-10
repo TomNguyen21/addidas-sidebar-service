@@ -5,6 +5,7 @@ const User = {
     try {
       const query = 'SELECT * FROM inventory where inventory_id<100';
       const { rows } = await database.query(query);
+      console.log(rows)
       return res.send({ rows });
     } catch (error) {
       return res.send(error);

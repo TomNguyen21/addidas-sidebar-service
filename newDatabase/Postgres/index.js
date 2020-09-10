@@ -4,8 +4,6 @@ const DATABASE_URL = 'postgres://localhost/sidebar'
 const pool = new Pool({
   connectionString: DATABASE_URL,
 });
-
-// a generic query, that executes all queries you send to it
 function query(text) {
   return new Promise((resolve, reject) => {
     pool
@@ -22,7 +20,6 @@ function query(text) {
 module.exports = {
   query
 };
-
 // user: 'tomnguyen',
 //   host: 'localhost',
 //   database: 'sidebar',
@@ -52,4 +49,4 @@ module.exports = {
 //     console.log('PostgreSQL connected!')
 //   })
 
-//   module.exports.pool = pool;
+  // module.exports.pool = pool;
