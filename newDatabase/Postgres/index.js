@@ -1,24 +1,35 @@
-const { Pool } = require('pg');
+const { Pool, Client } = require('pg');
 
 const DATABASE_URL = 'postgres://localhost/sidebar'
 const pool = new Pool({
   connectionString: DATABASE_URL,
 });
-function query(text) {
-  return new Promise((resolve, reject) => {
-    pool
-      .query(text)
-      .then((res) => {
-        resolve(res);
-      })
-      .catch((err) => {
-        reject(err);
-      });
-  });
+
+// function query(text) {
+//   return new Promise((resolve, reject) => {
+//     pool
+//       .query(text)
+//       .then((res) => {
+//         resolve(res);
+//       })
+//       .catch((err) => {
+//         reject(err);
+//       });
+//   });
+// }
+
+let client = new Client({
+  user: 'tomnguyen',
+  host: 'localhost',
+  database: 'sidebar',
+  port: 5432,
 }
+);
+client.connect();
 
 module.exports = {
-  query
+  // query,
+  client
 };
 // user: 'tomnguyen',
 //   host: 'localhost',

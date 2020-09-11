@@ -42,6 +42,7 @@ const App = (props) => {
 
   const updateData = (product) => {
     setProduct(product.data);
+    console.log(product.data)
   }
 
   const postData = (product) => {
@@ -85,7 +86,7 @@ const App = (props) => {
         <br></br>
         <Discount />
         <br></br>
-        <SizeSelection postData={postData} id={product[0].id}/>
+        <SizeSelection postData={postData} id={product[0].shoe_id}/>
         <br></br>
         <SizeGuide />
         <AddToBag product={product[0]}/>

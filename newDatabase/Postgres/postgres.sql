@@ -31,11 +31,12 @@ CREATE TABLE shoeColor (
 )
 
 CREATE TABLE inventory (
-  inventory_id INT,
-  size_id INT,
-  color_id INT,
+  inventory_id serial,
+  size NUMERIC,
+  color TEXT,
   shoe_id INT,
-  -- PRIMARY KEY(shoe_id)
+  quantity int,
+  PRIMARY KEY(inventory_id)
   --   FOREIGN KEY(category_id)
   --     REFERENCES category(category_id)
 )
