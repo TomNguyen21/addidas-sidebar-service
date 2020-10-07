@@ -19,8 +19,10 @@
 
 Set up webpack and run react
 > npm run react-dev
+
 Start application
 > npm run server-dev
+
 Run tests for application
 > npm run test
 
